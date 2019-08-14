@@ -39,7 +39,7 @@ public class EmployeeController {
 
         @PostMapping("/create")
         @ResponseBody
-        public void create(String firstName, String lastName, String id,int genderId, int raceId) {
+        public Employee create(String firstName, String lastName, String id,int genderId, int raceId) {
                 Employee employee = EmployeeFactory.buildEmployee(firstName, lastName, id);
                 employeeService.create(employee);
 
@@ -54,5 +54,7 @@ public class EmployeeController {
 
                 GenderDemo gender = GenderDemoFactory.buildGender("Male");
                 genderService.create(gender);
+
+                return employee;
         }
 }

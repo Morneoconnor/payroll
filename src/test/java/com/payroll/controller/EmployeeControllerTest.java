@@ -10,6 +10,7 @@ import com.payroll.factory.GenderFactory;
 import com.payroll.factory.RaceFactory;
 import com.payroll.factory.demographic.GenderDemoFactory;
 import com.payroll.factory.demographic.RaceDemoFactory;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,7 +35,10 @@ public class EmployeeControllerTest {
 
         Race employeeRace = RaceFactory.buildRace("White", "1");
         Employee employee = EmployeeFactory.buildEmployee("Morne", "O'Connor" ,"1");
-        employeeController.create("Morne", "O'Connor", "1",1, 1);
+        Employee result = employeeController.create("Morne", "O'Connor", "1",1, 1);
+
+        Assert.assertNotNull(result);
+        System.out.println(result.toString());
 
     }
 }
